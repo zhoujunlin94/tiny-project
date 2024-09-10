@@ -1,6 +1,7 @@
 package io.github.zhoujunlin94.infrastructure.test.kafka;
 
 import cn.hutool.core.collection.CollUtil;
+import cn.hutool.core.lang.Console;
 import io.github.zhoujunlin94.common.SettingContext;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -23,7 +24,7 @@ public class KafkaConsumerTest {
         while (true) {
             ConsumerRecords<String, String> consumerRecords = consumer.poll(Duration.ofMillis(100));
             for (ConsumerRecord<String, String> consumerRecord : consumerRecords) {
-                System.out.println("消费到数据：" + consumerRecord.value());
+                Console.log("消费到数据：{}", consumerRecord.value());
             }
         }
     }

@@ -1,0 +1,10 @@
+[kafka-default]
+bootstrap.servers = 127.0.0.1:9092
+key.serializer = org.apache.kafka.common.serialization.StringSerializer
+value.serializer = org.apache.kafka.common.serialization.StringSerializer
+
+group.id = test-kafka
+key.deserializer = org.apache.kafka.common.serialization.StringDeserializer
+value.deserializer = org.apache.kafka.common.serialization.StringDeserializer
+# earliest  latest
+auto.offset.reset = latest

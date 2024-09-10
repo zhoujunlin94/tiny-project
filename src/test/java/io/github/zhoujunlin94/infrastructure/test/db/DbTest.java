@@ -16,7 +16,7 @@ public class DbTest {
 
     @SneakyThrows
     public static void main(String[] args) {
-        Db db = Db.use(DataSourceFactoryCache.get("datasource-default").getDataSource());
+        Db db = DataSourceFactoryCache.getDb("datasource-default");
         List<Entity> entityList = db.find(Entity.create("t_order").set("order_token", "like ORDER%"));
         System.out.println(entityList);
     }

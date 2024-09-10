@@ -1,10 +1,12 @@
 package io.github.zhoujunlin94.infrastructure.db;
 
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.db.Db;
 import cn.hutool.db.ds.DSFactory;
 import cn.hutool.setting.Setting;
 import io.github.zhoujunlin94.common.SettingContext;
 
+import javax.sql.DataSource;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -32,6 +34,14 @@ public class DataSourceFactoryCache {
 
     public static DSFactory get(String group) {
         return DS_FACTORY_CACHE.get(makeKey(group));
+    }
+
+    public static DataSource getDataSource(String group) {
+        return get(group).getDataSource();
+    }
+
+    public static Db getDb(String group) {
+        return Db.use(getDataSource(group));
     }
 
 }

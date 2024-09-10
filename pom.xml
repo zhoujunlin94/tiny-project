@@ -16,6 +16,7 @@
         <fastjson.version>1.2.83</fastjson.version>
         <lombok.version>1.18.24</lombok.version>
         <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
+        <jedis.version>3.7.0</jedis.version>
         <kafka-client.version>3.0.1</kafka-client.version>
         <junit.version>4.12</junit.version>
     </properties>
@@ -44,6 +45,12 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector-java.version}</version>
             <scope>runtime</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${jedis.version}</version>
         </dependency>
 
         <dependency>

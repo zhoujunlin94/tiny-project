@@ -1,0 +1,4 @@
+# 组名为任务包名
+[io.github.zhoujunlin94.job]
+TestJob.test1 = 0/2 * * * * ? *
+TestJob.test2 = 0/10 * * * * ? *

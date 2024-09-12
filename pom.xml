@@ -15,6 +15,7 @@
         <hutool.version>5.8.26</hutool.version>
         <fastjson.version>1.2.83</fastjson.version>
         <lombok.version>1.18.24</lombok.version>
+        <logback.version>1.2.3</logback.version>
         <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
         <jedis.version>3.7.0</jedis.version>
         <kafka-client.version>3.0.1</kafka-client.version>
@@ -38,6 +39,12 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>${logback.version}</version>
         </dependency>
 
         <dependency>

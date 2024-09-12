@@ -1,8 +1,7 @@
 package io.github.zhoujunlin94.infrastructure.test.webserver;
 
-import cn.hutool.http.ContentType;
 import cn.hutool.http.HttpUtil;
-import com.alibaba.fastjson.JSONObject;
+import io.github.zhoujunlin94.infrastructure.webserver.DispatcherAction;
 
 /**
  * @author zhoujunlin
@@ -11,10 +10,7 @@ import com.alibaba.fastjson.JSONObject;
 public class WebServerTest {
 
     public static void main(String[] args) {
-        HttpUtil.createServer(8080).addAction("/test", ((request, response) -> {
-            System.out.println(request.getMethod());
-            response.write(new JSONObject().fluentPut("status", 0).toJSONString(), ContentType.JSON.toString());
-        })).start();
+        HttpUtil.createServer(8080).addAction("/", new DispatcherAction("io.github.zhoujunlin94.infrastructure.test.webserver")).start();
     }
 
 }

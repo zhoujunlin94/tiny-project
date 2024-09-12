@@ -26,20 +26,11 @@ public class DispatcherAction implements Action {
         StopWatch stopWatch = new StopWatch();
         stopWatch.start();
 
-        if (!RequestMethodExecutor.contain(requestMethod, path)) {
-            response.send404("404 NOT FOUND!");
-            printEnd(stopWatch, requestMethod, path);
-            return;
-        }
-
         RequestMethodExecutor.execute(requestMethod, path, request, response);
 
-        printEnd(stopWatch, requestMethod, path);
-    }
-
-    private void printEnd(StopWatch stopWatch, String requestMethod, String path) {
         stopWatch.stop();
         Console.log("结束请求{} {}, 耗时:{}ms", requestMethod, path, stopWatch.getTotalTimeMillis());
     }
+
 
 }

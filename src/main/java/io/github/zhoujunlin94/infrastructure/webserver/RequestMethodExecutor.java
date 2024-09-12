@@ -28,7 +28,7 @@ public class RequestMethodExecutor {
             for (Method publicMethod : ClassUtil.getPublicMethods(clazz)) {
                 if (AnnotationUtil.hasAnnotation(publicMethod, RequestMethod.class)) {
                     RequestMethod requestMethod = AnnotationUtil.getAnnotation(publicMethod, RequestMethod.class);
-                    String method = requestMethod.method();
+                    String method = requestMethod.method().toUpperCase();
                     String methodPath = StrUtil.removeSuffix(path, "/") + StrUtil.addPrefixIfNot(requestMethod.path(), "/");
                     if (REQUEST_METHOD_META_MAP.containsKey(methodPath)) {
                         if (REQUEST_METHOD_META_MAP.get(methodPath).containsKey(method)) {
@@ -42,11 +42,12 @@ public class RequestMethodExecutor {
         });
     }
 
-    public static boolean contain(String requestMethod, String path) {
-        return REQUEST_METHOD_META_MAP.getOrDefault(path, MapUtil.empty()).containsKey(requestMethod);
-    }
 
     public static Object execute(String requestMethod, String path, HttpServerRequest request, HttpServerResponse response) {
+        if (!REQUEST_METHOD_META_MAP.getOrDefault(path, MapUtil.empty()).containsKey(requestMethod.toUpperCase())) {
+            response.send404("404 NOT FOUND!");
+            return null;
+        }
         return REQUEST_METHOD_META_MAP.get(path).get(requestMethod).invoke(request, response);
     }
 

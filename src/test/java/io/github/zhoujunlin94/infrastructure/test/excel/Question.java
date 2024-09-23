@@ -13,16 +13,16 @@ import java.math.BigDecimal;
 @Data
 public class Question {
 
-    @Alias(columnName = "试卷名字")
-    private String paperName;
-
     @Alias(columnName = "题目id")
     private Integer paperId;
 
-    @Alias(columnName = "题干")
-    private String questionContent;
+    @Alias(columnName = "试卷名字")
+    private String paperName;
 
     @Alias(columnName = "错误率")
     private BigDecimal errorRate;
+
+    @Alias(columnName = "题干")
+    private String questionContent;
 
 }

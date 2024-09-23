@@ -4,7 +4,7 @@ import cn.hutool.core.annotation.AnnotationUtil;
 import cn.hutool.core.bean.BeanDesc;
 
 import java.lang.reflect.Field;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Objects;
 
@@ -16,7 +16,7 @@ public final class AliasUtil {
 
     public static Map<String, String> headAlias(Class clazz) {
         BeanDesc beanDesc = new BeanDesc(clazz);
-        Map<String, String> aliasNameMap = new HashMap<>();
+        Map<String, String> aliasNameMap = new LinkedHashMap<>();
         beanDesc.getProps().forEach(propDesc -> {
             Field field = propDesc.getField();
             String fieldName = field.getName();

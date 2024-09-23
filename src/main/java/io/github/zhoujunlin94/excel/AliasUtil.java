@@ -2,6 +2,7 @@ package io.github.zhoujunlin94.excel;
 
 import cn.hutool.core.annotation.AnnotationUtil;
 import cn.hutool.core.bean.BeanDesc;
+import cn.hutool.core.bean.BeanUtil;
 
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
@@ -15,7 +16,7 @@ import java.util.Objects;
 public final class AliasUtil {
 
     public static Map<String, String> headAlias(Class clazz) {
-        BeanDesc beanDesc = new BeanDesc(clazz);
+        BeanDesc beanDesc = BeanUtil.getBeanDesc(clazz);
         Map<String, String> aliasNameMap = new LinkedHashMap<>();
         beanDesc.getProps().forEach(propDesc -> {
             Field field = propDesc.getField();

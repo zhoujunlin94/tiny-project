@@ -4,7 +4,7 @@ import cn.hutool.core.map.MapUtil;
 import cn.hutool.poi.excel.ExcelReader;
 import cn.hutool.poi.excel.ExcelUtil;
 import cn.hutool.poi.excel.ExcelWriter;
-import io.github.zhoujunlin94.excel.AliasUtil;
+import io.github.zhoujunlin94.excel.ExcelColumnUtil;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,7 +18,7 @@ public class TestExcel {
 
     public static void main(String[] args) {
         String bookFilePath = "D:\\Users\\Administrator\\Desktop\\中级会计二模试卷Top20错题.xlsx";
-        Map<String, String> headAlias = AliasUtil.headAlias(Question.class);
+        Map<String, String> headAlias = ExcelColumnUtil.headAlias(Question.class);
 
         List<Question> fromQuestions = new LinkedList<>();
         for (int i = 0; i < ExcelUtil.getReader(bookFilePath).getSheetCount(); i++) {
@@ -30,7 +30,8 @@ public class TestExcel {
 
         Map<String, String> reverseHeadAlias = MapUtil.reverse(headAlias);
         ExcelWriter writer = ExcelUtil.getWriter("D:\\Users\\Administrator\\Desktop\\中级会计二模试卷Top20错题_copy.xlsx");
-        writer.setHeaderAlias(reverseHeadAlias).autoSizeColumnAll();
+        writer.setHeaderAlias(reverseHeadAlias);
+        ExcelColumnUtil.setColumnWidth(Question.class, writer);
         writer.write(fromQuestions).flush().close();
 
     }

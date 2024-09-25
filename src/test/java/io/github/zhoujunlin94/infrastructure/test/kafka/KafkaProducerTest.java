@@ -15,7 +15,7 @@ import java.util.Properties;
 public class KafkaProducerTest {
 
     public static void main(String[] args) {
-        Properties kafkaProps = SettingContext.getSetting("kafka", "kafka-default").toProperties();
+        Properties kafkaProps = SettingContext.getSetting("kafka", "kafka-default.producer").toProperties();
         KafkaProducer<String, String> kafkaProducer = new KafkaProducer<>(kafkaProps);
 
         for (int i = 0; i < 10; i++) {

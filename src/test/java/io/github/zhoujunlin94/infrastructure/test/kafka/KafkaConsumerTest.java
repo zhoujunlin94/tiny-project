@@ -17,7 +17,7 @@ import java.util.Properties;
 public class KafkaConsumerTest {
 
     public static void main(String[] args) {
-        Properties kafkaProps = SettingContext.getSetting("kafka", "kafka-default").toProperties();
+        Properties kafkaProps = SettingContext.getSetting("kafka", "kafka-default.consumer").toProperties();
         KafkaConsumer<String, String> consumer = new KafkaConsumer<>(kafkaProps);
         consumer.subscribe(CollUtil.newArrayList("flink-kafka-test"));
 

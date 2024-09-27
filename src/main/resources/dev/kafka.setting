@@ -2,10 +2,20 @@
 bootstrap.servers = 127.0.0.1:9092
 key.serializer = org.apache.kafka.common.serialization.StringSerializer
 value.serializer = org.apache.kafka.common.serialization.StringSerializer
+acks = all
+retries = 3
+retry.backoff.ms = 200
+compression.type = gzip
+batch.size = 16384
+linger.ms = 20
+buffer.memory = 33554432
+max.request.size = 10485760
 
 [kafka-default.consumer]
-group.id = test-kafka
+bootstrap.servers = 127.0.0.1:9092
+group.id = default-group
 key.deserializer = org.apache.kafka.common.serialization.StringDeserializer
 value.deserializer = org.apache.kafka.common.serialization.StringDeserializer
 # earliest  latest
 auto.offset.reset = latest
+enable.auto.commit = false

@@ -3,8 +3,10 @@ package io.github.zhoujunlin94.infrastructure.test.kafka;
 import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSONObject;
 import io.github.zhoujunlin94.common.SettingContext;
+import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
+import org.apache.kafka.clients.producer.RecordMetadata;
 
 import java.util.Properties;
 
@@ -20,7 +22,18 @@ public class KafkaProducerTest {
 
         for (int i = 0; i < 10; i++) {
             JSONObject msg = new JSONObject().fluentPut("id", i).fluentPut("msgId", IdUtil.fastSimpleUUID());
-            kafkaProducer.send(new ProducerRecord<>("flink-kafka-test", msg.toJSONString()));
+            kafkaProducer.send(new ProducerRecord<>("flink-kafka-test", i + "", msg.toJSONString()),
+                    new Callback() {
+                        @Override
+                        public void onCompletion(RecordMetadata metadata, Exception e) {
+                            if (e != null) {
+                                // 发送失败时  记录下来等待重试
+                                e.printStackTrace();
+                            } else {
+                                System.out.println("Sent message with offset: " + metadata.offset());
+                            }
+                        }
+                    });
         }
 
         kafkaProducer.close();

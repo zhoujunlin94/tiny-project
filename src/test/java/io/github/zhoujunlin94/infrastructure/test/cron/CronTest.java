@@ -1,6 +1,7 @@
 package io.github.zhoujunlin94.infrastructure.test.cron;
 
 import cn.hutool.cron.CronUtil;
+import io.github.zhoujunlin94.common.SettingContext;
 
 /**
  * @author zhoujunlin
@@ -9,7 +10,7 @@ import cn.hutool.cron.CronUtil;
 public class CronTest {
 
     public static void main(String[] args) {
-        CronUtil.setCronSetting("cron.setting");
+        CronUtil.setCronSetting(SettingContext.getSetting("cron.setting"));
         CronUtil.setMatchSecond(true);
         CronUtil.start();
     }

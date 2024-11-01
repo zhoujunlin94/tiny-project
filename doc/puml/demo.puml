@@ -1,0 +1,55 @@
+@startuml demo
+
+老张 -> 老王: 你好啊(同步消息)
+老张 ->> 老王: 你好啊(异步消息)
+老王 --> 老张: 你也好啊(返回消息)
+老王 -> 老王: 自调用
+
+participant Participant as Foo
+actor       Actor       as Foo1
+boundary    Boundary    as Foo2
+control     Control     as Foo3
+entity      Entity      as Foo4
+database    Database    as Foo5
+collections Collections as Foo6
+queue       Queue       as Foo7
+
+
+actor Bob #blue
+participant Alice #SkyBlue
+participant "I have a really\nlong name" as L #00ff00
+
+Alice->Bob: Authentication Request
+Bob-[#red]>Alice: Authentication Response
+Bob->L: Log transaction
+
+
+participant User
+User -> A: DoWork
+activate A
+A -> B: << createRequest >>
+activate B
+B -> C: DoWork
+activate C
+C --> B: WorkDone
+destroy C
+B --> A: RequestCreated
+deactivate B
+A -> User: Done
+deactivate A
+
+
+participant User1
+User1 -> A1: DoWork
+activate A1 #FFBBBB
+A1 -> A1: Internal call
+activate A1 #DarkSalmon
+A1 -> B1: << createRequest >>
+activate B1
+B1 --> A1: RequestCreated
+deactivate B1
+deactivate A1
+A1 -> User1: Done
+deactivate A1
+
+@enduml

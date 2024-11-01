@@ -1,0 +1,38 @@
+@startuml
+
+A -> B++: 激活B并发送消息
+A <--B--: B去激活并回应消息
+
+group 分组名
+A -> B: 消息
+...
+end group
+
+alt 条件1
+A -> B: 满足条件1的消息
+else 条件2
+A -> B: 满足条件2的消息
+end
+
+participant Alice
+participant Bob
+note left of Alice #aqua
+This is displayed
+left of Alice.
+end note
+
+note right of Alice: This is displayed right of Alice.
+
+note over Alice: This is displayed over Alice.
+
+note over Alice, Bob #FFAAAA: This is displayed\n over Bob and Alice.
+
+note over Bob, Alice
+This is yet another
+example of
+a long note.
+end note
+
+
+
+@enduml

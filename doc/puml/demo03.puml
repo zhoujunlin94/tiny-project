@@ -1,0 +1,8 @@
+@startuml
+skinparam ActorBorderColor #DarkOrange
+skinparam ParticipantBackgroundColor #SkyBlue
+skinparam ActorFontColor #red
+
+actor 用户
+participant 参与者
+@enduml

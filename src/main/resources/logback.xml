@@ -32,6 +32,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
     <!--定义控制台输出-->
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <!-- 过滤小于debug级别的日志 -->
             <level>debug</level>
         </filter>
         <encoder>

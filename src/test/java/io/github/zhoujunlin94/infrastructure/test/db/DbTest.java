@@ -3,7 +3,7 @@ package io.github.zhoujunlin94.infrastructure.test.db;
 import cn.hutool.core.lang.Console;
 import cn.hutool.db.Db;
 import cn.hutool.db.Entity;
-import io.github.zhoujunlin94.common.BeanFactory;
+import io.github.zhoujunlin94.core.BeanFactory;
 import lombok.SneakyThrows;
 
 import java.util.List;

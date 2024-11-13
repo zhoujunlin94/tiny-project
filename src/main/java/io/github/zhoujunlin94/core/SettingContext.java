@@ -1,6 +1,7 @@
-package io.github.zhoujunlin94.common;
+package io.github.zhoujunlin94.core;
 
 import cn.hutool.core.lang.Singleton;
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.setting.Setting;
 import cn.hutool.setting.SettingUtil;
 import cn.hutool.setting.profile.GlobalProfile;
@@ -12,18 +13,19 @@ import cn.hutool.setting.profile.Profile;
  */
 public class SettingContext {
 
+    private static final Setting APPLICATION_SETTING = SettingUtil.get("application");
+
     private static final Profile GLOBAL_PROFILE = Singleton.get("SettingContext", () -> {
-        Setting applicationSetting = SettingUtil.get("application");
-        String profile = applicationSetting.get("application.profile");
-        return GlobalProfile.setProfile(profile).setUseVar(true);
+        String profile = APPLICATION_SETTING.get("application.profile");
+        return GlobalProfile.setProfile(StrUtil.blankToDefault(profile, "dev")).setUseVar(true);
     });
 
     public static Setting getSetting(String settingName) {
-        return GLOBAL_PROFILE.getSetting(settingName);
+        return APPLICATION_SETTING.addSetting(GLOBAL_PROFILE.getSetting(settingName));
     }
 
     public static Setting getSetting(String settingName, String groupName) {
-        return GLOBAL_PROFILE.getSetting(settingName).getSetting(groupName);
+        return APPLICATION_SETTING.addSetting(GLOBAL_PROFILE.getSetting(settingName).getSetting(groupName));
     }
 
 }

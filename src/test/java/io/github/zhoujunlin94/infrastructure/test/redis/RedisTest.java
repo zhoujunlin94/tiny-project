@@ -2,7 +2,7 @@ package io.github.zhoujunlin94.infrastructure.test.redis;
 
 import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.lang.Console;
-import io.github.zhoujunlin94.common.BeanFactory;
+import io.github.zhoujunlin94.core.BeanFactory;
 import io.github.zhoujunlin94.infrastructure.redis.RedisHelper;
 
 import java.util.Date;

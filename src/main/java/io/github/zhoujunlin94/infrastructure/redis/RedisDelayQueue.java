@@ -3,7 +3,7 @@ package io.github.zhoujunlin94.infrastructure.redis;
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.thread.ThreadUtil;
 import cn.hutool.core.util.IdUtil;
-import io.github.zhoujunlin94.common.BeanFactory;
+import io.github.zhoujunlin94.core.BeanFactory;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.Collections;

@@ -1,7 +1,7 @@
 package io.github.zhoujunlin94.infrastructure.test.cron;
 
 import cn.hutool.cron.CronUtil;
-import io.github.zhoujunlin94.common.SettingContext;
+import io.github.zhoujunlin94.core.SettingContext;
 
 /**
  * @author zhoujunlin

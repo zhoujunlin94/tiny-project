@@ -1,6 +1,6 @@
 package io.github.zhoujunlin94.infrastructure.test.redis;
 
-import io.github.zhoujunlin94.common.BeanFactory;
+import io.github.zhoujunlin94.core.BeanFactory;
 import io.github.zhoujunlin94.infrastructure.redis.RedisHelper;
 import lombok.extern.slf4j.Slf4j;
 import redis.clients.jedis.JedisPubSub;

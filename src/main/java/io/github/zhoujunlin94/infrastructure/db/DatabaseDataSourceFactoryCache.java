@@ -4,7 +4,7 @@ import cn.hutool.core.util.StrUtil;
 import cn.hutool.db.Db;
 import cn.hutool.db.ds.DSFactory;
 import cn.hutool.setting.Setting;
-import io.github.zhoujunlin94.common.SettingContext;
+import io.github.zhoujunlin94.core.SettingContext;
 
 import javax.sql.DataSource;
 import java.util.Map;

@@ -3,7 +3,7 @@ package io.github.zhoujunlin94.infrastructure.redis;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.db.nosql.redis.RedisDS;
 import cn.hutool.setting.Setting;
-import io.github.zhoujunlin94.common.SettingContext;
+import io.github.zhoujunlin94.core.SettingContext;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

@@ -1,4 +1,4 @@
-package io.github.zhoujunlin94.common;
+package io.github.zhoujunlin94.core;
 
 import cn.hutool.core.lang.Singleton;
 import cn.hutool.db.Db;

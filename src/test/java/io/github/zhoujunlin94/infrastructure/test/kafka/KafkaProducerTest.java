@@ -2,7 +2,7 @@ package io.github.zhoujunlin94.infrastructure.test.kafka;
 
 import cn.hutool.core.util.IdUtil;
 import com.alibaba.fastjson.JSONObject;
-import io.github.zhoujunlin94.common.SettingContext;
+import io.github.zhoujunlin94.core.SettingContext;
 import org.apache.kafka.clients.producer.Callback;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;

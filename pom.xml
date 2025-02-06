@@ -15,6 +15,7 @@
         <hutool.version>5.8.26</hutool.version>
         <poi.version>5.0.0</poi.version>
         <fastjson.version>1.2.83</fastjson.version>
+        <QLExpress.version>3.3.4</QLExpress.version>
         <lombok.version>1.18.24</lombok.version>
         <logback.version>1.2.3</logback.version>
         <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
@@ -40,6 +41,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>QLExpress</artifactId>
+            <version>${QLExpress.version}</version>
         </dependency>
 
         <dependency>

@@ -2,7 +2,9 @@ package io.github.zhoujunlin94.infrastructure.test;
 
 import com.ql.util.express.DefaultContext;
 import com.ql.util.express.ExpressRunner;
+import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
+import org.junit.Test;
 
 /**
  * @author zhoujunlin
@@ -11,8 +13,9 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 public class SimpleTest {
 
-    public static void main(String[] args) throws Exception {
-
+    @Test
+    @SneakyThrows
+    public void testQLTest() {
         ExpressRunner runner = new ExpressRunner();
         DefaultContext<String, Object> context = new DefaultContext<>();
         context.put("a", 1);
@@ -21,7 +24,6 @@ public class SimpleTest {
         String express = "a + b * c";
         Object r = runner.execute(express, context, null, true, false);
         System.out.println(r);
-
     }
 
 }

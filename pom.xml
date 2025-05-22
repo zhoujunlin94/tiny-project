@@ -26,15 +26,15 @@
         <maven.compiler.target>17</maven.compiler.target>
 
         <hutool.version>5.8.26</hutool.version>
-        <poi.version>5.0.0</poi.version>
         <fastjson.version>1.2.83</fastjson.version>
         <QLExpress.version>3.3.4</QLExpress.version>
         <lombok.version>1.18.24</lombok.version>
-        <logback.version>1.2.3</logback.version>
+        <logback.version>1.4.14</logback.version>
         <mysql-connector-java.version>8.0.17</mysql-connector-java.version>
         <jedis.version>3.7.0</jedis.version>
         <kafka-client.version>3.0.1</kafka-client.version>
         <junit.version>4.12</junit.version>
+        <tika.version>2.9.0</tika.version>
     </properties>
 
     <dependencies>
@@ -42,12 +42,6 @@
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.poi</groupId>
-            <artifactId>poi-ooxml</artifactId>
-            <version>${poi.version}</version>
         </dependency>
 
         <dependency>
@@ -75,6 +69,12 @@
         </dependency>
 
         <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-core</artifactId>
+            <version>${logback.version}</version>
+        </dependency>
+        
+        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql-connector-java.version}</version>
@@ -99,6 +99,18 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>${tika.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-parsers-standard-package</artifactId>
+            <version>${tika.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
